@@ -29,7 +29,7 @@ jobs:
       - name: ins
         run: npm install webtorrent-cli -g
       - name: download
-        run: webtorrent ${{ github.event.inputs.magnet }}
+        run: webtorrent "${{ github.event.inputs.magnet }}"
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
