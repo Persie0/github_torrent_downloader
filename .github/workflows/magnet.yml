@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: '4.x'
       - name: install
-        run: npm install --save-dev @babel/node
+        run: npm install -g @babel/core @babel/cli
       - name: download
         run: npm run start '${{ github.event.inputs.magnet }}'
       - name: Upload
