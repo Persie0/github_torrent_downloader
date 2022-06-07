@@ -26,12 +26,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm i --global torrent
+      - run: npm i -g torrent-downloader-cli
       - name: download
-        run: torrent "${{ github.event.inputs.magnet }}"
+        run: torrent-downloader-cli "${{ github.event.inputs.magnet }}"
       - name: Upload
-        uses: actions/upload-artifact@v3.0.0
+        uses: Difegue/action-megacmd@master
         with:
-          name: release
-          path: .
-          retention-days: 90
+          args: put . .
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
