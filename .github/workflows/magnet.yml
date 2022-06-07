@@ -26,9 +26,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm i -g torrent-downloader-cli
+      - run: npm install --global rdcli
       - name: download
-        run: torrent-downloader-cli "${{ github.event.inputs.magnet }}"
+        run: rdcli '${{ github.event.inputs.magnet }}'
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
