@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '4.x'
+      - name: install
+        run: npm install --save-dev @babel/node
       - name: download
         run: npm run start '${{ github.event.inputs.magnet }}'
       - name: Upload
