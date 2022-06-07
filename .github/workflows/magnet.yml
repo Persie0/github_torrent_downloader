@@ -27,13 +27,13 @@ jobs:
         with:
           node-version: '4.x'
       - name: install
-        run: npm install -g @babel/core @babel/cli
+        run: npm install webtorrent-cli -g
       - name: download
-        run: npm run start '${{ github.event.inputs.magnet }}'
+        run: webtorrent "${{ github.event.inputs.magnet }}" -o ./hallo/
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
-          args: put . .
+          args: put ./hallo/ .
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
