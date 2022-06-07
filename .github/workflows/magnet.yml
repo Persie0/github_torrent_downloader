@@ -26,9 +26,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm install --global rdcli
       - name: download
-        run: rdcli '${{ github.event.inputs.magnet }}'
+        run: npm run start '${{ github.event.inputs.magnet }}'
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
