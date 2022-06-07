@@ -14,10 +14,10 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
-        node-version: [4.x ]
+        node-version: [16.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -25,11 +25,11 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '4.x'
+          node-version: '16.x'
       - name: ins
-        run: npm install
+        run: npm i -g torrent-downloader-cli
       - name: download
-        run: npm run start '${{ github.event.inputs.magnet }}'
+        run: torrent-downloader-cli "${{ github.event.inputs.magnet }}"
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
