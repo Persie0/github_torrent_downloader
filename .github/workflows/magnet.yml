@@ -27,9 +27,9 @@ jobs:
         with:
           node-version: '16.x'
       - name: ins
-        run: npm i -g torrent-downloader-cli
+        run: npm install webtorrent-cli -g
       - name: download
-        run: torrent-downloader-cli "${{ github.event.inputs.magnet }}"
+        run: webtorrent ${{ github.event.inputs.magnet }}
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
