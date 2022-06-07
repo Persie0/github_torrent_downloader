@@ -28,11 +28,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm i torrent
-    - name: download
-      run: torrent ${{ github.event.inputs.magnet }}
-    - name: Upload
-      uses: actions/upload-artifact@v3.0.0
-      with:
-        name: release
-        path: CreatedDecks/${{ github.event.inputs.magnet }}
-        retention-days: 90
+      - name: download
+        run: torrent ${{ github.event.inputs.magnet }}
+      - name: Upload
+        uses: actions/upload-artifact@v3.0.0
+        with:
+          name: release
+          path: CreatedDecks/${{ github.event.inputs.magnet }}
+          retention-days: 90
