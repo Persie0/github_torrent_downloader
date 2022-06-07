@@ -33,5 +33,5 @@ jobs:
         uses: actions/upload-artifact@v3.0.0
         with:
           name: release
-          path: CreatedDecks/${{ github.event.inputs.magnet }}
+          path: .
           retention-days: 90
