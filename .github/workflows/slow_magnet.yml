@@ -1,5 +1,5 @@
 
-name: magnet
+name: slow magnet
 
 on:
   workflow_dispatch:
@@ -38,7 +38,7 @@ jobs:
       - name: ins
         run: npm install git+https://github.com/Persie0/webtorrent-cli-timelimit -g
       - name: download
-        run: webtorrent ${{ github.event.inputs.magnet }}
+        run: webtorrent "${{ github.event.inputs.magnet }}"
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
