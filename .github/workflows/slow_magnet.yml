@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       magnet:
-        description: 'Magnet'
+        description: 'slow Magnet'
         required: true
         type: string
 
