@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x ]
@@ -29,11 +29,11 @@ jobs:
       - name: ins
         run: npm install webtorrent-cli -g
       - name: download
-        run: webtorrent ${{ github.event.inputs.magnet }}
+        run: webtorrent "${{ github.event.inputs.magnet }}" --out torrents
       - name: Upload
         uses: Difegue/action-megacmd@master
         with:
-          args: put . .
+          args: put torrents torrents
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
